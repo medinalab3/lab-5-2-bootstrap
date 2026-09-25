@@ -64,7 +64,7 @@ ARCHIVOS INCLUIDOS
 
 ENLACE DEL REPOSITORIO DE GITHUB
 ---------------------------------
-https://github.com/medinalab3/lab-4-2-css-estilos
+https://github.com/medinalab3/lab-5-2-bootstrap
 
 CÓMO VISUALIZAR EL PROYECTO
 -----------------------------
