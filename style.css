@@ -1,0 +1,100 @@
+/* ==========================================================
+   LABORATORIO 5.2 - Página web responsiva con Bootstrap y CSS
+   ==========================================================
+   Este archivo se carga DESPUÉS de Bootstrap (ver index 5.2.html) y
+
+   demuestra CSS propio encima del framework:
+   1. Selectores de ELEMENTO (ej. body, footer)
+   2. Selectores de ID (ej. #titulo-hero, #menu-principal, #miLienzo)
+   3. Selectores de CLASE (ej. .tarjeta-destacada)
+   4. El MODELO DE CAJA (margin, border, padding, box-sizing)
+   5. Ajustes RESPONSIVOS adicionales con media queries, encima del
+      grid responsivo que ya trae Bootstrap
+   ========================================================== */
+
+/* ----------------------------------------------------------
+   1. SELECTOR DE ELEMENTO
+   Aplica a TODOS los elementos de ese tipo en la página.
+   ---------------------------------------------------------- */
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    --bs-body-bg: #0a0a0a;       /* variable de Bootstrap para el fondo de la página */
+    background-color: #0a0a0a;   /* fondo negro, igual que en el Lab 4.2 */
+}
+
+footer {
+    background-color: #212529;
+    color: #ccc;
+}
+
+/* ----------------------------------------------------------
+   2. SELECTORES DE ID
+   Un id es único, así que estos estilos solo afectan al
+   elemento exacto que lo tiene. Se usan para personalizar
+   partes puntuales de la página por encima de Bootstrap.
+   ---------------------------------------------------------- */
+#menu-principal {
+    background-color: #1e3a8a;
+}
+
+#titulo-hero {
+    background: linear-gradient(135deg, #1e3a8a, #0f1f4d);
+}
+
+#miLienzo {
+    border: 1px solid #ccc;
+    display: block;
+}
+
+/* Símbolo de la Aldea de la Hoja (Konoha) de Naruto en el hero */
+#simbolo-konoha {
+    color: #f97316;              /* naranja de Naruto; el SVG usa currentColor */
+    display: block;
+    margin: 0 auto 12px;         /* centrado y separado del título */
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4));
+}
+
+/* ----------------------------------------------------------
+   3. SELECTOR DE CLASE
+   Reutilizable en cualquier elemento que la necesite; en este
+   proyecto se usa en la tarjeta de la captura de pantalla para
+   que luzca distinta al resto de las tarjetas de Bootstrap.
+   ---------------------------------------------------------- */
+
+/* ----------------------------------------------------------
+   4. MODELO DE CAJA (Box Model)
+   Bootstrap ya trae su propio box-sizing y padding para las
+   tarjetas (.card), pero aquí se sobrescribe el modelo de caja
+   de ESTA tarjeta en particular para que se vea diferente a las
+   demás: borde más grueso y de color, más separación externa y
+   una sombra más marcada.
+   ---------------------------------------------------------- */
+.tarjeta-destacada {
+    box-sizing: border-box;     /* el padding y el borde se cuentan DENTRO del ancho total */
+    border: 3px solid #1e3a8a;  /* borde más grueso y de color que el de Bootstrap por defecto */
+    margin-top: 10px;           /* espacio externo adicional */
+    box-shadow: 0 6px 14px rgba(30, 58, 138, 0.25);
+}
+
+/* ----------------------------------------------------------
+   5. AJUSTES RESPONSIVOS ADICIONALES
+   El grid de Bootstrap (row/col-md-*) ya apila las columnas en
+   pantallas pequeñas automáticamente. Esta media query añade
+   ajustes propios que Bootstrap no cubre por sí solo, como el
+   tamaño del título principal.
+   ---------------------------------------------------------- */
+@media (max-width: 576px) {
+
+    #titulo-hero h1 {
+        font-size: 1.8rem;
+    }
+
+    #titulo-hero .lead {
+        font-size: 1rem;
+    }
+
+    #miLienzo {
+        max-width: 100%;
+        height: auto;
+    }
+}
